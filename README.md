@@ -1,19 +1,29 @@
 # smartkeyvalstore
-Simple Distributed Key Value Store using Akka HTTP
 
-Features:
-1. RESTful APIs for add, remove and fetch the keys
+# Description
+Simple Distributed Key Value Store using Akka HTTP with following highlights:
+1. RESTful APIs to add, remove and fetch the keys.
 2. Distributed i.e can be run as multiple instances with replication across all the peers.
 
-How to use:
+# Environment
+1. Uses SBT for build and dependency management.
+2. Compile and tested using Scala 2.12.x
+3. Uses scalatest for unit tests
+4. Uses JSON format for input as well as the response.
+
+# Usage
+1. To run the server:
 sbt run
-It starts the server at port 8080
-To run it on a different port
+It starts the server at default port 8080 and binds on all the interfaces.
+To run it on a different port:
 sbt -Ddkv.server.port=<PORT> run
 To give list of peer end points which will have data replicated with us as below:
 sbt -Ddkv.peer.endpoints=<HOST1:PORT1,HOST2:PORT2..> run
 
-APIs:
+2. To test only run:
+sbt test
+
+# API Usage and examples
 1. Fetch a key
 URI: /dkv/<KEY_TO_FETCH_>
 Example:
